@@ -1,0 +1,112 @@
+{
+  "notes": "default",
+  "data": {
+    "input_size": 1014,
+    "num_of_classes": 18,
+    "vocab_size"    : 1000,
+    "training_data_source": "data/nadi/NADI2022_Subtask1_TRAIN.tsv",
+    "training_label_source":"data/adi/train.labels",
+    "validation_data_source": "data/nadi/NADI2022_Subtask1_DEV.tsv",
+    "validation_label_source":"data/adi/dev.labels",
+    "test_data_source": "data/nadi/NADI2022_Subtask1_TEST-B_Unlabeled.tsv",
+    "test_label_source":"data/adi/test.labels"
+  },
+  "model": "char_cnn_zhang",
+  "training": {
+    "epochs": 3,
+    "batch_size": 128,
+    "evaluate_every": 2,
+    "checkpoint_every": 2
+  },
+  "char_tcn": {
+    "embedding_size": 128,
+    "conv_layers": [
+      [
+        256,
+        5
+      ],
+      [
+        256,
+        5
+      ]
+    ],
+    "fully_connected_layers": [
+      1024
+    ],
+    "dropout_p": 0.2,
+    "optimizer": "adam",
+    "loss": "categorical_crossentropy"
+  },
+  "char_cnn_kim": {
+    "embedding_size": 128,
+    "conv_layers": [
+      [
+        256,
+        10
+      ],
+      [
+        256,
+        7
+      ],
+      [
+        256,
+        5
+      ],
+      [
+        256,
+        3
+      ]
+    ],
+    "fully_connected_layers": [
+      1024,
+      1024
+    ],
+    "threshold": 1e-6,
+    "dropout_p": 0.1,
+    "optimizer": "adam",
+    "loss": "categorical_crossentropy"
+  },
+  "char_cnn_zhang": {
+    "embedding_size": 128,
+    "conv_layers": [
+      [
+        256,
+        7,
+        3
+      ],
+      [
+        256,
+        7,
+        3
+      ],
+      [
+        256,
+        3,
+        -1
+      ],
+      [
+        256,
+        3,
+        -1
+      ],
+      [
+        256,
+        3,
+        -1
+      ],
+      [
+        256,
+        3,
+        3
+      ]
+    ],
+    "fully_connected_layers": [
+      1024,
+      1024
+    ],
+    "threshold": 1e-6,
+    "dropout_p": 0.5,
+    "optimizer": "adam",
+    "loss": "categorical_crossentropy"
+  }
+}
