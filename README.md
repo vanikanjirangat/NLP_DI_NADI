@@ -18,6 +18,7 @@ tensorflow <br />
 scipy <br />
 sentencepiece [https://github.com/google/sentencepiece] <br />
 nltk <br />
+transformers <br />
 
 **Congfigurations** <br />
 The model configurations and path files are specified in config file for UnigramCNN
